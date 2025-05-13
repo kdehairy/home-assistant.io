@@ -94,6 +94,8 @@ The **ntfy** integration will add a {% term device %} with an associated notify 
 action: notify.send_message
 data:
   message: "Reminder: Have you considered frogs?"
+  metadata:
+    priority: 3
   entity_id: notify.mytopic
 ```
 

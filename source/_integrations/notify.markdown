@@ -52,10 +52,13 @@ One notification integration is automatically included, the Persistent Notificat
 
 Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify action in time. There is an entity platform action `send_message` which allows you to send notification messages to multiple notify entities.
 
-| Data attribute | Optional | Description                |
-| -------------- | -------- | -------------------------- |
-| `message`      | no       | Body of the notification.  |
-| `title`        | yes      | Title of the notification. |
+| Data attribute | Optional | Description                       |
+| -------------- | -------- | ----------------------------------|
+| `message`      | no       | Body of the notification.         |
+| `title`        | yes      | Title of the notification.        |
+| `metadata`     | yes      | meta data about the notification. |
+
+`metadata` being a dictinary of attributes or properties of this notification that are not content. Currently, it supports passing a `priority` property for the notification, with value ranging between `1` (being lowest) and `5` (the highest). 
 
 ## Companion app notifications
 
@@ -87,6 +90,8 @@ data:
   entity_id: notify.my_direct_message_notifier
   message: "You have an update!"
   title: "Status changed"
+  metadata:
+    priority: 3
 ```
 
 {% endraw %}
